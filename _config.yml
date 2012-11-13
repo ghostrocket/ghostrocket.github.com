@@ -28,6 +28,14 @@ author :
 #
 production_url : http://ghostrocket.github.com
 
+markdown: rdiscount
+pygments: true
+lsi: true
+exclude: ['README.markdown', 'README_FOR_COLLABORATORS.markdown', 'Gemfile.lock', 'Gemfile']
+production: false
+//add this line to add pagination
+paginate: 3 //the number of post per page
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :
