@@ -4,27 +4,30 @@ title: Keith Fitzgerald
 ---
 
 {% for post in paginator.posts %}
-   <!-- here add you post markup -->
-   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-   <p class="author">
-    <span class="date">{{post.date}}</span>
-  </p>
-  <div class="content">
-    {{ post.content }}
-  </div>
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<div>
+	{{ post.content | truncatewords: 5}}
+</div>
+<p>
+	{{post.date | date: "%d %B %Y"}}
+</p>  
 {% endfor %}
 
 <!-- Pagination links -->
 <div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="/page{{paginator.previous_page}}" class="previous">Previous</a>
-  {% else %}
-    <span class="previous">Previous</span>
-  {% endif %}
-  <span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
-  {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}" class="next ">Next</a>
-  {% else %}
-    <span class="next ">Next</span>
-  {% endif %}
+	<ul>
+		{% if paginator.previous_page %}
+		<li class="active"><a href="/page{{paginator.previous_page}}">«</a></li>
+		{% else %}
+		<li class="disabled"><a href="#" class="disabled" onclick="return false;">«</a></li>
+		{% endif %}
+		{% for page_num in (1..paginator.total_pages) %}
+		<li class="active"><a href="#">{{page_num}}</span>
+		{% endfor %}
+		{% if paginator.next_page %}
+		<li class="active"><a href="/page{{paginator.next_page}}">»</a></li>
+		{% else %}
+		<li class="disabled"><a href="#" class="disabled" onclick="return false;">»</a></li>
+		{% endif %}
+	</ul>
 </div>
