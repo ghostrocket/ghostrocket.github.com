@@ -22,13 +22,15 @@
 	        <span class="icon-bar"></span>
 	      </a>
  
-	      <!-- Be sure to leave the brand out there if you want it shown -->
-	      <a class="brand" href="/">Keith Fitzgerald</a>
-		  
-	      <!-- Everything you want hidden at 940px or less, place within here -->
 	      <div class="nav-collapse collapse">
+			  <ul class="nav">
+				  <li><a href="/">Home</a></li>
+				  <li><a href="/about">About Keith</a></li>
+			  </ul>
 			  <ul class="nav pull-right">
-				  <li><a href="/about">About</a></li>
+				  <form class="navbar-search">
+				    <input type="text" class="search-query" placeholder="search">
+				  </form>
 			  </ul>
 	      </div>
  
@@ -36,10 +38,25 @@
 	  </div>
 	</div>
 	
+	<header class="jumbotron subhead" id="overview">
+	  <div class="container">
+	    <h1>Keith Fitzgerald</h1>
+	    <p class="lead">A blog on technology, endurance racing, and the miscellany.</p>
+	  </div>
+	</header>
+	
 	<div class="container">
 		<div class="row">
 		  <div class="span9">
 			  {{ content }}
+		  </div>
+  		  <div class="span3">
+			  <ul class="nav nav-tabs nav-stacked">
+				{% for tag in site.tags %}
+			    <li><a href="/">{{tag[0]}}</a></li>
+				{% endfor %}
+			  </ul>
+		  </div>
 		  </div>
 	  </div>
 	</div>
