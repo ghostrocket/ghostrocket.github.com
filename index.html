@@ -16,6 +16,7 @@ title: Keith Fitzgerald
 	  {% endfor %}
 
 	  <!-- Pagination links -->
+	  {% if paginator.total_pages > site.paginate %}
 	  <div class="pagination">
 	  	<ul>
 	  		{% if paginator.previous_page %}
@@ -33,6 +34,7 @@ title: Keith Fitzgerald
 	  		{% endif %}
 	  	</ul>
 	  </div>
+	  {% endif %}
   </div>
   <div class="span3">
 	  <ul class="nav nav-tabs nav-stacked">
