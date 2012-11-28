@@ -8,10 +8,10 @@ title: Keith Fitzgerald
 	  {% for post in paginator.posts %}
 	  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 	  <div>
-	  	{{ post.content | truncatewords: 5}}
+	  	{{ post.content | truncatewords: 5 | replace:post.title,'' }}
 	  </div>
 	  <p>
-	  	{{post.date | date: "%d %B %Y"}}
+	  	{{ post.date | date: "%d %B %Y" }}
 	  </p>  
 	  {% endfor %}
 
@@ -25,7 +25,7 @@ title: Keith Fitzgerald
 	  		<li class="disabled"><a href="#" class="disabled" onclick="return false;">«</a></li>
 	  		{% endif %}
 	  		{% for page_num in (1..paginator.total_pages) %}
-	  		<li class="active"><a href="#">{{page_num}}</span>
+	  		<li class="active"><a href="#">{{ page_num }}</span>
 	  		{% endfor %}
 	  		{% if paginator.next_page %}
 	  		<li class="active"><a href="/page{{paginator.next_page}}">»</a></li>
@@ -38,8 +38,20 @@ title: Keith Fitzgerald
   </div>
   <div class="span3">
 	  <ul class="nav nav-tabs nav-stacked">
+		{% capture tag_list %}
 		{% for tag in site.tags %}
-	    <li><a href="/">{{tag[0]}}</a></li>
+		{% if forloop.last %}
+		{{ tag[1].size }}
+		{% else %}
+		{{ tag[1].size }},
+		{% endif %}
+		{% endfor %}
+		{% endcapture %}
+		
+		{% assign tag_list = tag_list|split:',' %}
+
+		{% for tag_name in site.tags %}
+	    <li><a href="/">{{tag_name[0]}} ( {{ tag_list[forloop.index0] }} )</a></li>
 		{% endfor %}
 	  </ul>
   </div>

@@ -2,4 +2,16 @@
 layout: default
 ---
 
-{{ content }}
+<div class="row">
+	<div class="span9">
+		<h2>{{ page.title }}</h2>
+		{{ content }}
+	</div>
+    <div class="span3">
+  	  <ul class="nav nav-tabs nav-stacked">
+  		{% for tag in page.tags %}
+  	    <li><a href="/">{{ tag }}</a></li>
+  		{% endfor %}
+  	  </ul>
+    </div>
+</div>
