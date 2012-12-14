@@ -51,7 +51,7 @@ title: Keith Fitzgerald
 		{% assign tag_list = tag_list|split:',' %}
 
 		{% for tag_name in site.tags %}
-	    <li><a href="/">{{tag_name[0]}} ( {{ tag_list[forloop.index0] }} )</a></li>
+	    <li><a href="/tags/{{tag_name[0]}}">{{tag_name[0]}} ( {{ tag_list[forloop.index0] }} )</a></li>
 		{% endfor %}
 	  </ul>
   </div>

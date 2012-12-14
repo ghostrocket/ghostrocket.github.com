@@ -1,0 +1,21 @@
+---
+layout: default
+title: Keith Fitzgerald
+---
+
+<div class="row">
+  <div class="span9">
+	  
+	  {% for post in site.tags.music %}
+	  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	  <div>
+	  	{{ post.content | truncatewords: 5 | replace:post.title,'' }}
+	  </div>
+	  <p>
+	  	{{ post.date | date: "%d %B %Y" }}
+	  </p>  
+	  {% endfor %}
+
+  </div>
+</div>
+
