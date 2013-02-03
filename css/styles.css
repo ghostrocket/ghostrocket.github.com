@@ -13,13 +13,12 @@ a:hover {
 	text-decoration: none;
 }
 
-a.easteregg { 
-	color: #FF4242;
+li.easteregg a { 
+	visibility: hidden;
 }
 
-a.easteregg:hover {
-	color: #CBE86B;
-	text-decoration: none;
+li.easteregg:hover {
+	visibility: visible;
 }
 
 ul {
