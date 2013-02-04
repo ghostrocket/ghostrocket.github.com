@@ -13,12 +13,12 @@ a:hover {
 	text-decoration: none;
 }
 
-li.easteregg a { 
-	visibility: hidden;
+a.easteregg i { 
+	display: none;
 }
 
-li.easteregg:hover {
-	visibility: visible;
+a.easteregg:hover i{
+	display: block;
 }
 
 ul {
