@@ -1,15 +1,15 @@
 body {
 	padding: 40px;
-	background-color: #000000;
-	color: #FFFFFF;
+	background-color: #242424;
+	color: #E54725;
 }
 
 a { 
-	color: #FFFF00;
+	color: #F7931D;
 }
 
 a:hover {
-	color: #FF0000;
+	color: #F17122;
 	text-decoration: none;
 }
 
